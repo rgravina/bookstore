@@ -5,7 +5,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-Book.create!([{
+books = Book.create!([{
   isbn: "978-1-93435-659-3",
   slug: "seven-languages-in-seven-weeks",
   title: "Seven Languages in Seven Weeks",
@@ -55,4 +55,14 @@ Book.create!([{
   image_url: "https://imagery.pragprog.com/products/343/vsjava8.jpg",
   pages: 196,
   published: "2014-02-28"
+}])
+
+suppliers = Supplier.create!([{
+  name: "Amazon"
+}])
+
+SupplierBook.create!([{
+  supplier: suppliers.first,
+  book: books.first,
+  price: 4600
 }])

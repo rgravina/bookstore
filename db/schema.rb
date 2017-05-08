@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170508085448) do
+ActiveRecord::Schema.define(version: 20170508105600) do
 
   create_table "books", force: :cascade do |t|
     t.string "isbn"
@@ -22,6 +22,17 @@ ActiveRecord::Schema.define(version: 20170508085448) do
     t.string "image_url"
     t.integer "pages"
     t.date "published"
+  end
+
+  create_table "supplier_books", force: :cascade do |t|
+    t.integer "supplier_id"
+    t.integer "book_id"
+    t.index ["book_id"], name: "index_supplier_books_on_book_id"
+    t.index ["supplier_id"], name: "index_supplier_books_on_supplier_id"
+  end
+
+  create_table "suppliers", force: :cascade do |t|
+    t.string "name"
   end
 
 end
