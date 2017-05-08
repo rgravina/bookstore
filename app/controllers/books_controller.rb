@@ -1,6 +1,8 @@
+require_relative '../repositories/book_repository'
+
 class BooksController < ApplicationController
   def index
-    @books = Book.all
+    @books = BookRepository.new.all
   end
 
   def show
@@ -17,5 +19,21 @@ class BooksController < ApplicationController
         discount_reason: sb.discount_reason
       )
     end
+  end
+
+  def show_better
+    book_repository = BookRepository.new
+    supplier_repository = SupplierRepository.new
+    discount_repository = DiscountRepository.new
+
+    price_calculator = PriceCalculator.new(
+      book_repository: book_repository,
+      supplier_repository: supplier_repository,
+      discount_repository: discount_repository
+    )
+
+    @book = book_repository.get(params[:id])
+    @supplier_books = price_calculator.calculate_for_book(book_id: params[:id])
+    render :show
   end
 end
