@@ -9,13 +9,16 @@
         <tr>
           <th>Supplier</th>
           <th>Price</th>
+          <th>Discount</th>
+          <th>Reason</th>
         </tr>
       </thead>
       <tbody>
         <% @supplier_books.each do |sb| %>
         <tr>
-          <td><%= sb.supplier.name %></td>
-          <td><%= sb.price %></td>
+          <td><%= sb.name %></td>
+          <td><%= number_to_currency(sb.price/100) %></td>
+          <td><%= number_to_currency(sb.discounted_price/100) %></td>
         </tr>
         <% end %>
       </tbody>

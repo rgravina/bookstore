@@ -84,6 +84,10 @@ SupplierBook.create!([{
   book: books[4],
   price: 3300
 },{
+  supplier: suppliers.second,
+  book: books.first,
+  price: 4600
+},{
   supplier: suppliers.third,
   book: books.first,
   price: 3495
@@ -104,11 +108,14 @@ discounts = Discount.create!([{
 
 SupplierDiscount.create!([{
   supplier: suppliers.first,
-  discount: discounts.first
+  discount: discounts.first,
+  percent: 10
 },{
   supplier: suppliers.second,
-  discount: discounts.second
+  discount: discounts.second,
+  percent: 15
 },{
   supplier: suppliers.third,
-  discount: discounts.third
+  discount: discounts.third,
+  percent: 20
 }])
