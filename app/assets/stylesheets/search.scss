@@ -1,0 +1,23 @@
+$headerBackground: #3097D1;
+$white: #fff;
+$bodyBackground: #f5f8fa;
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background-color: $bodyBackground;
+  font: 1em "Open Sans", sans-serif;
+}
+
+.container {
+}
+
+.header {
+  padding: 1rem 0;
+  background-color: $headerBackground;
+  h1 {
+    margin: 0;
+    padding: 0 0 0 1rem;
+    color: $white;
+  }
+}
