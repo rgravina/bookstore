@@ -1,4 +1,4 @@
-$headerBackground: #3097D1;
+$blue: #3097D1;
 $white: #fff;
 $bodyBackground: #f5f8fa;
 $grey: #ccc;
@@ -10,12 +10,17 @@ html, body {
   font: 1em "Open Sans", sans-serif;
 }
 
+a {
+  color: $blue;
+  text-decoration: none;
+}
+
 .container {
 }
 
 .header {
   padding: 1rem 0;
-  background-color: $headerBackground;
+  background-color: $blue;
   h1 {
     margin: 0;
     padding: 0 0 0 1rem;

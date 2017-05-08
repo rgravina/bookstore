@@ -4,10 +4,10 @@
   </div>
   <div class="list">
     <% @books.each do |book| %>
-      <div class="book">
+      <%= link_to(book, class: "book") do %>
         <img src="<%= book.image_url %>"/>
-        <h2><%=book.title%></h2>
-      </div>
+        <h2><%= book.title %></h2>
+      <% end %>
     <% end %>
   </div<>
 </div>
