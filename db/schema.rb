@@ -22,13 +22,32 @@ ActiveRecord::Schema.define(version: 20170508105600) do
     t.string "image_url"
     t.integer "pages"
     t.date "published"
+    t.string "skill"
+    t.string "language"
+  end
+
+  create_table "discounts", force: :cascade do |t|
+    t.string "skill"
+    t.string "language"
+    t.integer "pages"
+    t.date "start"
+    t.date "end"
   end
 
   create_table "supplier_books", force: :cascade do |t|
     t.integer "supplier_id"
     t.integer "book_id"
+    t.integer "price"
     t.index ["book_id"], name: "index_supplier_books_on_book_id"
     t.index ["supplier_id"], name: "index_supplier_books_on_supplier_id"
+  end
+
+  create_table "supplier_discounts", force: :cascade do |t|
+    t.integer "supplier_id"
+    t.integer "discount_id"
+    t.integer "percent"
+    t.index ["discount_id"], name: "index_supplier_discounts_on_discount_id"
+    t.index ["supplier_id"], name: "index_supplier_discounts_on_supplier_id"
   end
 
   create_table "suppliers", force: :cascade do |t|

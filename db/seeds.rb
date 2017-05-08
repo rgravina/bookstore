@@ -14,7 +14,9 @@ books = Book.create!([{
   description: "You should learn a programming language every year, as recommended by The Pragmatic Programmer. But if one per year is good, how about Seven Languages in Seven Weeks? In this book you’ll get a hands-on tour of Clojure, Haskell, Io, Prolog, Scala, Erlang, and Ruby. Whether or not your favorite language is on that list, you’ll broaden your perspective of programming by examining these languages side-by-side. You’ll learn something new from each, and best of all, you’ll learn how to learn a language quickly. Just as each new spoken language can make you smarter and increase your options, each programming language increases your mental tool kit, adding new abstractions you can throw at each new problem. Knowledge is power. The Seven in Seven series builds on that power across many different dimensions. Each chapter in each book walks you through some nontrivial problem with each language, or database, or web server. These books take commitment to read, but their impact can be profound.",
   image_url: "https://imagery.pragprog.com/products/195/btlang.jpg",
   pages: 330,
-  published: "2010-10-27"
+  published: "2010-10-27",
+  language: nil,
+  skill: "medium"
 }, {
   isbn: "978-1-68050-171-1",
   slug: "agile-web-development-with-rails-5",
@@ -24,7 +26,9 @@ books = Book.create!([{
   description: "Rails 5 and Ruby 2.2 bring many improvements, including new APIs and substantial performance enhancements, and the fifth edition of this award-winning classic is now updated! If you’re new to Rails, you’ll get step-by-step guidance. If you’re an experienced developer, this book will give you the comprehensive, insider information you need for the latest version of Ruby on Rails.",
   image_url: "https://imagery.pragprog.com/products/457/rails5.jpg",
   pages: 486,
-  published: "2016-09-28"
+  published: "2016-09-28",
+  language: "ruby",
+  skill: "beginner"
 },{
   isbn: "978-1-68050-235-0",
   slug: "swift-style",
@@ -34,7 +38,9 @@ books = Book.create!([{
   description: "Discover the do’s and don’ts involved in crafting readable Swift code as you explore common Swift coding challenges and the best practices that address them. From spacing, bracing, and semicolons to proper API style, discover the whys behind each recommendation, and add to or establish your own house style guidelines. This practical, powerful, and opinionated guide offers the best practices you need to know to work successfully in this equally opinionated programming language.",
   image_url: "https://imagery.pragprog.com/products/516/esswift.jpg",
   pages: 224,
-  published: "2017-03-10"
+  published: "2017-03-10",
+  language: "swift",
+  skill: "medium"
 },{
   isbn: "978-1-68050-170-4",
   slug: "core-data-in-swift",
@@ -44,7 +50,9 @@ books = Book.create!([{
   description: "Core Data is intricate, powerful, and necessary. Discover the powerful capabilities integrated into Core Data, and how to use Core Data in your iOS and OS X projects. All examples are current for macOS Sierra, iOS 10, and the latest release of Core Data. All the code is written in Swift 3, including numerous examples of how best to integrate Core Data with Apple’s newest programming language.",
   image_url: "https://imagery.pragprog.com/products/464/mzswift.jpg",
   pages: 212,
-  published: "2016-06-15"
+  published: "2016-06-15",
+  language: "swift",
+  skill: "advanced"
 },{
   isbn: "978-1-93778-546-8",
   slug: "functional-programming-in-java",
@@ -54,15 +62,53 @@ books = Book.create!([{
   description: "Get ready to program in a whole new way. Functional Programming in Java will help you quickly get on top of the new, essential Java 8 language features and the functional style that will change and improve your code. This short, targeted book will help you make the paradigm shift from the old imperative way to a less error-prone, more elegant, and concise coding style that’s also a breeze to parallelize. You’ll explore the syntax and semantics of lambda expressions, method and constructor references, and functional interfaces. You’ll design and write applications better using the new standards in Java 8 and the JDK.",
   image_url: "https://imagery.pragprog.com/products/343/vsjava8.jpg",
   pages: 196,
-  published: "2014-02-28"
+  published: "2014-02-28",
+  language: "java",
+  skill: "advanced"
 }])
 
 suppliers = Supplier.create!([{
   name: "Amazon"
+},{
+  name: "Uncle Bobs"
+},{
+  name: "Generic Books"
 }])
 
 SupplierBook.create!([{
   supplier: suppliers.first,
   book: books.first,
   price: 4600
+},{
+  supplier: suppliers.second,
+  book: books[4],
+  price: 3300
+},{
+  supplier: suppliers.third,
+  book: books.first,
+  price: 3495
+}])
+
+discounts = Discount.create!([{
+  language: "ruby",
+  start: "2017-05-08",
+  end: "2017-06-07",
+},{
+  language: "java",
+  start: "2017-05-15",
+  end: "2017-05-31",
+},{
+  language: "swift",
+  pages: 220
+}])
+
+SupplierDiscount.create!([{
+  supplier: suppliers.first,
+  discount: discounts.first
+},{
+  supplier: suppliers.second,
+  discount: discounts.second
+},{
+  supplier: suppliers.third,
+  discount: discounts.third
 }])

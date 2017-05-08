@@ -10,6 +10,8 @@ class CreateBook < ActiveRecord::Migration[5.1]
       t.string :image_url
       t.integer :pages
       t.date :published
+      t.string :skill
+      t.string :language
     end
   end
 end
