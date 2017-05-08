@@ -13,7 +13,8 @@ class BooksController < ApplicationController
       OpenStruct.new(
         name: sb.supplier.name,
         price: sb.price,
-        discounted_price: sb.discounted_price
+        discounted_price: sb.discounted_price,
+        discount_reason: sb.discount_reason
       )
     end
   end

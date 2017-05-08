@@ -80,6 +80,18 @@ SupplierBook.create!([{
   book: books.first,
   price: 4600
 },{
+  supplier: suppliers.first,
+  book: books.second,
+  price: 2300
+},{
+  supplier: suppliers.first,
+  book: books.third,
+  price: 3200
+},{
+  supplier: suppliers.first,
+  book: books[3],
+  price: 1200
+},{
   supplier: suppliers.second,
   book: books[4],
   price: 3300
@@ -91,6 +103,18 @@ SupplierBook.create!([{
   supplier: suppliers.third,
   book: books.first,
   price: 3495
+},{
+  supplier: suppliers.third,
+  book: books.second,
+  price: 2395
+},{
+  supplier: suppliers.third,
+  book: books.third,
+  price: 1295
+},{
+  supplier: suppliers.third,
+  book: books[3],
+  price: 2000
 }])
 
 discounts = Discount.create!([{
@@ -99,7 +123,7 @@ discounts = Discount.create!([{
   end: "2017-06-07",
 },{
   language: "java",
-  start: "2017-05-15",
+  start: "2017-05-01",
   end: "2017-05-31",
 },{
   language: "swift",

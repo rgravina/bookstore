@@ -19,6 +19,7 @@
           <td><%= sb.name %></td>
           <td><%= number_to_currency(sb.price/100) %></td>
           <td><%= number_to_currency(sb.discounted_price/100) %></td>
+          <td><%= sb.discount_reason ? sb.discount_reason : nil %></td>
         </tr>
         <% end %>
       </tbody>
