@@ -2,4 +2,12 @@
   <div class="header">
     <h1>The Lazy Loader</h1>
   </div>
+  <div class="list">
+    <% @books.each do |book| %>
+      <div class="book">
+        <img src="<%= book.image_url %>"/>
+        <h2><%=book.title%></h2>
+      </div>
+    <% end %>
+  </div<>
 </div>
