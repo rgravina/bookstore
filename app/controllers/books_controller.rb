@@ -25,11 +25,13 @@ class BooksController < ApplicationController
     book_repository = BookRepository.new
     supplier_repository = SupplierRepository.new
     discount_repository = DiscountRepository.new
+    discount_matcher = DiscountMatcher.new
 
     price_calculator = PriceCalculator.new(
       book_repository: book_repository,
       supplier_repository: supplier_repository,
-      discount_repository: discount_repository
+      discount_repository: discount_repository,
+      discount_matcher: discount_matcher
     )
 
     @book = book_repository.get(params[:id])

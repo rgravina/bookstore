@@ -1,10 +1,11 @@
 class PriceCalculator
-  attr_accessor :book_repository, :supplier_repository, :discount_repository
+  attr_accessor :book_repository, :supplier_repository, :discount_repository, :discount_matcher
 
   def initialize(opts = {})
     @book_repository = opts[:book_repository]
     @supplier_repository = opts[:supplier_repository]
     @discount_repository = opts[:discount_repository]
+    @discount_matcher = opts[:discount_matcher]
   end
 
   def calculate_for_book(book_id:)
@@ -12,8 +13,12 @@ class PriceCalculator
     book = book_repository.get(book_id)
     items = supplier_repository.for(book: book)
     items.map do |item|
-      discount = discount_repository.for(
+      supplier_discounts = discount_repository.for(
         supplier: item.supplier,
+        book: book
+      )
+      discount = discount_matcher.for(
+        discounts: supplier_discounts,
         book: book
       )
       OpenStruct.new(
