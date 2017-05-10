@@ -4,7 +4,6 @@ class DiscountMatcher
      discounts.select do |sd|
        book.language.nil? || sd.discount.language.nil? || sd.discount.language == book.language
      end.select do |sd|
-       true
        (sd.discount.start.nil? && sd.discount.end.nil?) ||
        (sd.discount.start <= Date.today && sd.discount.end >= Date.today) ||
        (sd.discount.start <= Date.today && sd.discount.end.nil?) ||
