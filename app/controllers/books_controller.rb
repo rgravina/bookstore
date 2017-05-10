@@ -1,5 +1,3 @@
-require_relative '../repositories/book_repository'
-
 class BooksController < ApplicationController
   def index
     @books = BookRepository.new.all
