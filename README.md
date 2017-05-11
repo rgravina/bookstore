@@ -1,6 +1,6 @@
 # Bookstore Sample App
 
-This app was prepared for a (talk)[https://github.com/rails-oceania/roro/files/989921/rails-repositories-talk.pdf] on refactoring Rails controllers to:
+This app was prepared for a [talk](https://github.com/rails-oceania/roro/files/989921/rails-repositories-talk.pdf) on refactoring Rails controllers to:
 
   * Move logic out of controllers and into other objects
   * Use services and repositories to factor database concerns out of your domain models
